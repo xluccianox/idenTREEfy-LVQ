@@ -26,12 +26,12 @@ with open('hojas-dataset.txt', 'rb') as f:
 input = np.array(input)
 target = np.array(target)
 
-# Creo una red tipo Kohonen-LVQ con 50 neuronas en la capa competitiva, funcion de activacion equiprobable y 1000 iteraciones
-net = nl.net.newlvq(nl.tool.minmax(input), 50, [.125,.125,.125,.125,.125,.125,.125,.125], epoch = 1000)
+# Creo una red tipo Kohonen-LVQ con 50 neuronas en la capa competitiva, funcion de activacion equiprobable
+net = nl.net.newlvq(nl.tool.minmax(input), 50, [.125,.125,.125,.125,.125,.125,.125,.125])
 
-# Entreno la red
+# Entreno la red con 1000 iteraciones
 print 'Entrenando la red...'
-error = net.train(input, target)
+error = net.train(input, target, epochs = 1000)
 
 i = [[5.388059701492537,0.31503342325288,1.5585913587009053,1.8382633010917735,0.9979837101840756], # Eucalyptus_Melliodora
 	 [2.139130434782609,0.5808038009859917,1.6809768561157492,1.6715470747274044,0.9966067089124588], # Ficus_Benjamina
